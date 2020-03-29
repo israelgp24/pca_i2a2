@@ -14,6 +14,7 @@ data_trans_std = sc.fit_transform(data_trans.values)
 pca = PCA(n_components=4)
 data_trans_pca=pca.fit_transform(data_trans_std)
 
+# PCA scree plot
 plt.figure(figsize=(10,5))
 plt.bar(
         ['PCA {}'.format(str(i+1)) for i in range(pca.n_components_)], 
@@ -26,7 +27,7 @@ plt.legend()
 plt.show()
 print('Variance Ratio: ', np.round(pca.explained_variance_ratio_,3))
 
-
+# Correlation Matrix
 plt.figure()
 correlation_Matrix = np.corrcoef(data_trans)
 objects = ['Object {}'.format(str(i+1)) for i in range(pca.n_components_)]
@@ -39,8 +40,9 @@ sns.heatmap(
         xticklabels=objects, 
         yticklabels=objects
 )  
-
 plt.show()
+
+# Objects in a plane with coordinates PCA 1 and PCA 2 
 element_x = []
 element_y = []
 for i in range(pca.n_components_):
