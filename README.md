@@ -3,4 +3,6 @@
 
 PCA – Exercise
 
-Solution
+Result
+
+objects 2 does not behave like a star.
